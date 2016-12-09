@@ -1,0 +1,45 @@
+     ul {
+             list-style-type: none;
+             padding: 5px 0px 5px 25px;
+             overflow: hidden;
+             background-color: darkgrey;
+             margin: 0;
+        		width: 0 auto;
+        }
+      li {
+             float: right;
+        }
+    li a {
+             display: inline;
+             color: white;
+             text-align: center;
+             font-size: 25px;
+             font-family: 'Athiti', sans-serif;
+             padding: 5px 20px 5px 20px;
+             text-decoration: none;
+             margin: 0;
+             
+        }
+/* Change the link color to black on hover */
+        li a:hover {
+             background-color: black;
+        }
+
+  body {
+    background-color: white;
+}
+
+ul li .active {
+    color: limegreen;
+    background-color: white;
+}
+
+.companyname {
+    float: left;
+    color: powderblue;
+    font-size: 35px;
+    font-weight: 200;
+}
+#navbar {
+width: 0 auto;
+}
