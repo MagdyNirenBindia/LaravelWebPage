@@ -36,3 +36,6 @@ Route::get('/BrowseEvents.php', function () {
 Route::get('/CreateEvent.php', function () {
     return view('CreateEvent');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
