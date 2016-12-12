@@ -25,10 +25,6 @@ Route::get('/HomePage.php', function () {
     return view('HomePage');
 });
 
-Route::get('/LogIn.php', function () {
-    return view('LogIn');
-});
-
 Route::get('/BrowseEvents.php', function () {
     return view('BrowseEvents');
 });
@@ -36,6 +32,8 @@ Route::get('/BrowseEvents.php', function () {
 Route::get('/CreateEvent.php', function () {
     return view('CreateEvent');
 });
-Auth::routes();
 
+Auth::routes();
 Route::get('/home', 'HomeController@index');
+Route::get('logout', array('uses' => 'HomeController@doLogout'));
+?>
