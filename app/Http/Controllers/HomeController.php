@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Session;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -26,10 +28,11 @@ class HomeController extends Controller
     {
         return view('TestHome');
     }
-    
+
     public function doLogout()
     {
         Auth::logout(); // log the user out of our application
+        Session::flush();
         return Redirect::to('login'); // redirect the user to the login screen
     }
 }

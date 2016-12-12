@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('LogIn');
+    return view('auth/login');
 });
 
 
@@ -29,11 +29,18 @@ Route::get('/BrowseEvents.php', function () {
     return view('BrowseEvents');
 });
 
+Route::get('/Example.blade.php', function () {
+    return view('Example');
+});
+
 Route::get('/CreateEvent.php', function () {
     return view('CreateEvent');
 });
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
-Route::get('logout', array('uses' => 'HomeController@doLogout'));
+//Route::get('/logout',function(){
+  //  return view('auth/login');
+//});
+Route::get('/logout', 'HomeController@doLogout');
 ?>
