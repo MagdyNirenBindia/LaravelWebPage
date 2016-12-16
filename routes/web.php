@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('LogIn');
+    return view('auth/login');
 });
 
 
@@ -25,14 +25,22 @@ Route::get('/HomePage.php', function () {
     return view('HomePage');
 });
 
-Route::get('/LogIn.php', function () {
-    return view('LogIn');
-});
-
 Route::get('/BrowseEvents.php', function () {
     return view('BrowseEvents');
+});
+
+Route::get('/Example.blade.php', function () {
+    return view('Example');
 });
 
 Route::get('/CreateEvent.php', function () {
     return view('CreateEvent');
 });
+
+Auth::routes();
+Route::get('/home', 'HomeController@index');
+//Route::get('/logout',function(){
+  //  return view('auth/login');
+//});
+Route::get('/logout', 'HomeController@doLogout');
+?>
