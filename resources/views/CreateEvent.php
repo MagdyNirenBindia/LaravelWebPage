@@ -2,38 +2,37 @@
 <html>
 <head>
     <title>Create your Event</title>
-    <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Athiti|Calligraffitti|Parisienne|Ruthie" rel="stylesheet"> 
-    <link href="<?php echo asset('css/NavBar.css')?>" type="text/css" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/css?family=Athiti|Nunito" rel="stylesheet"> 
+    <link href ="NavBar.css" type="text/css" rel="stylesheet" ?>
     </head>
 
     <body>
 <div id="navbar">
   <ul>
-  <li class="companyname">MBN</li>
-  <li><a href="BrowseEvents.php">Browse Events</a></li>
-  <li><a class="active" href="CreateEvent.php">Create my Event</a></li>
-  <li><a href = "LogIn.php"> Sign out</a></li>
+  <li class="companylogo"><img src="Logo1.jpg" width="120px" height="80px"/></li>
+  <li><a href="BrowseEvents.html">Browse Events</a></li>
+  <li><a class="active" href="CreateEvent.html">Create my Event</a></li>
+      <li><a href="ViewMyEvents.html">View my Events</a></li>
+  <li><a href = "LogIn.html"> Sign out</a></li>
 </ul>
   </div>
+        <div id="sidebar">
+        <p> Make your own event page in just minutes! <br> <br><span class="description">Simply fill in all the details and we'll post it. <br><br> It's hassle free and easy to do.</span> </p>
+        </div>
 
-    <p>
-    Create your events here...
-    </p>
-    
+    <div id="form">
     <form>
-     Event Name<br>
-  <input type="text" name="Event Name"><br>
-     Event Date<br>
-  <input type="text" name="Date of Event"><br>
-     Event Location<br>
-  <input type="text" name="Event Location"><br>
-        
-     What's it about?<br>
-        
- 
-  <input type="submit" value="Create Event!">
-    </form>
-
+  <input type="text" placeholder="Add a name" id="text"><br>
+  <input type="text" placeholder="Add a date" id="text"><br>
+  <input type="text" placeholder="Set a time duration" id="text"><br>
+  <input type="text" placeholder="Add a location" id="text" ><br>
+  <input type="text" placeholder="Choose a category" id="text"><br>
+  <input type="text" placeholder="Add the number of tickets available" id="text"><br>
+  <input type="text" placeholder="Add a description..." id="text"><br>
+  <input type="submit" value="Create Event" id="post"><br><br><br>
+        </form>
+        </div>
+    
 </body>
 
 </html>

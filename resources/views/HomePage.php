@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MBN Events</title>
-    <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Athiti|Calligraffitti|Parisienne|Ruthie" rel="stylesheet"> 
-    <link href="<?php echo asset('css/NavBar.css')?>" type="text/css" rel="stylesheet" >
+    <title>BnM Events</title>
+<link href="https://fonts.googleapis.com/css?family=Bungee|Indie+Flower" rel="stylesheet">
+    <link href ="HomePage.css" type="text/css" rel="stylesheet" ?>
     </head>
 <body>
-<div id="navbar">
-  <ul>
-  <li class="companyname">MBN</li>
-  <li><a href="BrowseEvents.php">Browse Events</a></li>
-  <li><a href="CreateEvent.php">Create Event</a></li>
-  <li><a href = "LogIn.php"> Sign out</a></li>
-</ul>
+<div id="top-bar">
+    </div>
+<div id="top-bar2"> 
     
-  </div>
-    <p>
-    Book and create your events here!
-    </p>
-
-    <div id="image">
-    <a href="">
-        
-        </a>
+    </div>
+<div id="links">
+    <a href="BrowseEvents.html"><div class="link1" >
+    <p>Browse Events</p>
+        </div> </a>
+    <a href="CreateEvent.html"><div class="link2" href="CreateEvent.html">
+    <p>Create Event</p>
+        </div></a>
+    <a href="ViewMyEvents.html"><div class="link3" href="ViewMyEvents.html">
+    <p>View my Events</p>
+        </div></a>
+    <a href="LogIn.html"><div class="link4" href="LogIn.html">
+    <p>Sign Out</p>
+        </div></a>
+ </div>
+    <div>
+    <img class="logo" src="Logo1.jpg" width="100px" height="70px"/>
+    </div>
+    <div>
+    
     </div>
 </body>
 
