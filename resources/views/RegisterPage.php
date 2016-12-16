@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Make an account</title>    
-</head>
+    <title>Register</title>
+    <link href="https://fonts.googleapis.com/css?family=Athiti|Nunito" rel="stylesheet"> 
+    <link href ="LogIn.css" type="text/css" rel="stylesheet" ?>
+    </head>
+    
 <body>
-<h1>Please fill in the following information:</h1>
+    <div id="top-bar"></div>
+    <div id="register-form">
     <form>
-    <p>First Name: <input type="text" placeholder="Joe"/> Last Name:
-        <input type="text" placeholder="Smith"/>
+        <p> <span id="registerspan">Create an Account</span></p>
+    <p><input id="text" type="text" placeholder="First Name"/> <br>
+        <input id ="text" type="text" placeholder="Last Name"/><br>
         </p>
-    <p>Email: <input type="text" placeholder="joe@smith.example"/></p>
-    <p>Password: <input type="password" placeholder="Password"/></p>
-    <p>Confirm Password: <input type="password" placeholder="Password"/></p>
-    <p><input type="submit" value="Sign Up"/></p>
+    <p><input id="text" type="text" placeholder="Enter Email"/></p>
+    <p><input id="text" type="password" placeholder="Password"/></p>
+    <p> <input id="text" type="password" placeholder="Confirm Password"/></p>
+    <p><input id="post" type="submit" value="Sign Up"/></p>
     </form>
+        </div>
+    <div id="bottom-bar"></div>
+    
 </body>
+    
 </html>
