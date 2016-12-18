@@ -33,9 +33,7 @@ Route::get('/Example.blade.php', function () {
     return view('Example');
 });
 
-Route::get('/CreateEvent.php', function () {
-    return view('CreateEvent');
-});
+Route::get('/CreateEvent.blade.php', 'HomeController@showWelcome');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
