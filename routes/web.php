@@ -21,8 +21,8 @@ Route::get('/RegisterPage.php', function () {
 });
 
 
-Route::get('/HomePage.php', function () {
-    return view('HomePage');
+Route::get('/testHome', function () {
+    return view('TestHome');
 });
 
 Route::get('/BrowseEvents.php', function () {
@@ -33,7 +33,11 @@ Route::get('/Example.blade.php', function () {
     return view('Example');
 });
 
-Route::get('/CreateEvent.blade.php', 'HomeController@showWelcome');
+Route::get('/data', 'EventsController@index');
+
+Route::get('/createEvent', 'EventsController@showCreateEvent');
+Route::post('/createEvent', 'EventsController@doCreateEvent');
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');

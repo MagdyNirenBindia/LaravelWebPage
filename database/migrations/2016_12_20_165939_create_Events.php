@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEvent extends Migration
+class CreateEvents extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,7 @@ class CreateEvent extends Migration
      */
     public function up()
     {
-        Schema::create('event',function($event){
-          $event -> increments('id');
-          $event -> string('Name');
-          $event -> date('Date');
-          $event -> timestamps();
-        });
+
     }
 
     /**
@@ -28,6 +23,6 @@ class CreateEvent extends Migration
      */
     public function down()
     {
-      Schema::drop('event');
+
     }
 }
