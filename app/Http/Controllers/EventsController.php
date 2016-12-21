@@ -32,6 +32,7 @@ class EventsController extends Controller
     $event = new Event;
     $event -> Name = Input::get('name');
     $event -> Date = Input::get('date');
+    $event -> Creator = Input::get('creator');
     $event -> Ticket_Capacity = Input::get('ticketCapacity');;
     $event -> save();
     return View::make('eventCreated');

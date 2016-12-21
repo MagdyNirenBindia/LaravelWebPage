@@ -16,6 +16,10 @@ class UpdateEvent extends Migration
         Schema::table('event',function($newcolumn){
           $newcolumn -> integer('Ticket_Capacity');
         });
+
+        Schema::table('event',function($newcolumn2){
+          $newcolumn2 -> string('Creator');
+        });
     }
 
     /**

@@ -1,5 +1,16 @@
+<?php use Illuminate\Support\Facades\Auth;
+use App\User;
+
+// Get the currently authenticated user...
+$user = Auth::user();
+
+// Get the currently authenticated user's ID...
+$id = Auth::id();
+
+$name = User::find($id)->name?>
+
 <html>
-<h1>Event Created Sucessfully</h1>
+<h1>Event Created Sucessfully by <?=$name?></h1>
 <nav>
   <ul>
     <li><a href="<?= URL::to('/logout') ?>">Log out</a></li>
