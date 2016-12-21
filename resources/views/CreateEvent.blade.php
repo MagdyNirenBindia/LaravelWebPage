@@ -22,6 +22,7 @@ $nameCreator = User::find($id)->name?>
         <input type="text" name = "ticketCapacity" placeholder="Ticket Capacity"><br>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="creator" value="{{ $nameCreator }}">
+        <input type="hidden" name="creatorID" value="{{ $id }}">
         <input type="submit">
       </form>
     </div>
