@@ -1,8 +1,21 @@
+<?php use Illuminate\Support\Facades\Auth;
+use App\User;
+
+// Get the currently authenticated user...
+$user = Auth::user();
+
+// Get the currently authenticated user's ID...
+$id = Auth::id();
+
+$nameCreator = User::find($id)->name?>
+
+<!DOCTYPE html>
 <html>
 <head>
 <title>MBN Events Homepage</title>
 </head>
 <body>
+<h1>Welcome {{$nameCreator}}</h1>
 <p>This is a test homepage, and should only be reached if you have succesfully logged in</p>
 <nav>
   <ul>

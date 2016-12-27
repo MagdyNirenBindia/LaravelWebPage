@@ -35,8 +35,12 @@ class EventsController extends Controller
     $event -> Creator = Input::get('creator');
     $event -> CreatorID = Input::get('creatorID');
     $event -> Ticket_Capacity = Input::get('ticketCapacity');;
+    $event -> Category = Input::get('category');
     $event -> save();
-    return View::make('eventCreated');
+    return View::make('eventCreated',['event'=> $event]);
   }
-
+  public function getData()
+  {
+      return response()->json(['response' => 'This is get method']);
+}
 }

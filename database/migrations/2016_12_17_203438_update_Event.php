@@ -22,6 +22,9 @@ class UpdateEvent extends Migration
         Schema::table('event',function($newcolumn3){
           $newcolumn3 -> string('CreatorID');
         });
+        Schema::table('event',function($newcolumn4){
+          $newcolumn4 -> string('Category');
+        });
     }
 
     /**
@@ -39,6 +42,9 @@ class UpdateEvent extends Migration
       });
       Schema::table('event',function($newcolumn3){
         $newcolumn3 -> dropcolumn('CreatorID');
+      });
+      Schema::table('event',function($newcolumn4){
+        $newcolumn4 -> dropcolumn('Category');
       });
 
     }

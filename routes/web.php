@@ -39,6 +39,9 @@ Route::get('/createEvent', 'EventsController@showCreateEvent');
 Route::post('/createEvent', 'EventsController@doCreateEvent');
 
 
+Route::get('/testAjax', 'EventsController@getData');
+
+
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 //Route::get('/logout',function(){
