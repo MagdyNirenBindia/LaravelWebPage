@@ -27,15 +27,26 @@ class EventsController extends Controller
     return View::make('CreateEvent');
   }
 
+
+
+public function showBrowseEvents()
+{
+  return View::make('BrowseEvents');
+}
+
+
   public function doCreateEvent()
   {
     $event = new Event;
     $event -> Name = Input::get('name');
+    $event -> Start_Date = date("Y-m-d H:i:s");
+    $event -> End_Date = date("Y-m-d H:i:s");
+    $event -> Description = 'sample Description';
+    $event -> Location = 'sample Location';
     $event -> Date = Input::get('date');
     $event -> Creator = Input::get('creator');
-    $event -> CreatorID = Input::get('creatorID');
     $event -> Ticket_Capacity = Input::get('ticketCapacity');;
-    $event -> Category = Input::get('category');
+    $event -> Genre = Input::get('category');
     $event -> save();
     return View::make('eventCreated',['event'=> $event]);
   }

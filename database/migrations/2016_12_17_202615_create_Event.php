@@ -16,7 +16,14 @@ class CreateEvent extends Migration
         Schema::create('event',function($event){
           $event -> increments('id');
           $event -> string('Name');
+          $event -> integer('Ticket_Capacity');
+          $event -> date('Start_Date');
+          $event -> date('End_Date');
           $event -> date('Date');
+          $event -> string('Location');
+          $event -> string('Creator');
+          $event -> string('Genre');
+          $event -> string('Description');
           $event -> timestamps();
         });
     }

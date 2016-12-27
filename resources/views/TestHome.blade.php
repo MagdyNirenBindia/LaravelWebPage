@@ -21,6 +21,7 @@ $nameCreator = User::find($id)->name?>
   <ul>
     <li><a href="<?= URL::to('/logout') ?>">Log out</a></li>
     <li><a href="createEvent">Create Event</a></li>
+    <li><a href="browseEvent">Browse Event</a></li>
     <li><a href="/data">Show Data</a></li>
   </ul>
 </nav>
