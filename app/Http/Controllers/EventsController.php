@@ -31,7 +31,7 @@ class EventsController extends Controller
 
 public function showBrowseEvents()
 {
-  return View::make('BrowseEvents');
+  return View::make('TestBrowseEvents');
 }
 
 

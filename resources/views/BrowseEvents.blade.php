@@ -9,7 +9,7 @@ if(isset($_POST['search']))
 	else{
 
 	$query = "SELECT * FROM `event`";
-	$search_result = filterTable ($query);
+	$search_result = filterTable($query);
 }
 function filterTable($query)
 {
