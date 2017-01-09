@@ -30,7 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('TestHome');
+        return view('TestUpdateHome');
     }
 
     public function doLogout()
