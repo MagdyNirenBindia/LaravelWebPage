@@ -15,6 +15,7 @@ class CreateEvent extends Migration
     {
         Schema::create('event',function($event){
           $event -> increments('id');
+          $event -> integer('CreatorID');
           $event -> string('Name');
           $event -> integer('Ticket_Capacity');
           $event -> date('Start_Date');

@@ -25,8 +25,8 @@ Route::get('/testHome', function () {
     return view('TestHome');
 });
 
-Route::get('/BrowseEvents.php', function () {
-    return view('BrowseEvents');
+Route::get('/BrowseEvents', function () {
+    return view('TestBrowseEvents');
 });
 
 Route::get('/Example.blade.php', function () {
@@ -39,6 +39,8 @@ Route::get('/createEvent', 'EventsController@showCreateEvent');
 Route::get('/browseEvent', 'EventsController@showBrowseEvents');
 Route::post('/createEvent', 'EventsController@doCreateEvent');
 
+
+Route::post('/attendEvent','AttendEventsController@doAttendEvent');
 
 Route::get('/testAjax', 'EventsController@getData');
 

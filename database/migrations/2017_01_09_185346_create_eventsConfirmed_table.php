@@ -15,13 +15,9 @@ class CreateEventsConfirmedTable extends Migration
     {
         Schema::create('events_confirmed', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('Event ID');
-            $table->integer('Creator ID');
-            $table->integer('Customer ID');
-            $table->string('Event Name');
-            $table->Date('Event Date');
-            $table->string('Attendee');
-            $table->string('Attendee e-mail');
+            $table->integer('EventID');
+            $table->integer('CustomerID');
+            $table->timestamps();
         });
     }
 

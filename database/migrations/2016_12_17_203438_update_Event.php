@@ -13,18 +13,7 @@ class UpdateEvent extends Migration
      */
     public function up()
     {
-        /*Schema::table('event',function($newcolumn){
-          $newcolumn -> integer('Ticket_Capacity');
-        });
-        Schema::table('event',function($newcolumn2){
-          $newcolumn2 -> string('Creator');
-        });
-        Schema::table('event',function($newcolumn3){
-          $newcolumn3 -> string('CreatorID');
-        });
-        Schema::table('event',function($newcolumn4){
-          $newcolumn4 -> string('Category');
-        });*/
+
     }
 
     /**
@@ -33,22 +22,8 @@ class UpdateEvent extends Migration
      * @return void
      */
     public function down()
-    {Schema::table('event',function($newcolumn){
-      $newcolumn -> dropcolumn('CreatorID');
-    });
-
-      /*Schema::table('event',function($newcolumn){
-        $newcolumn -> dropcolumn('Ticket_Capacity');
-      });
-      Schema::table('event',function($newcolumn2){
-        $newcolumn2 -> dropcolumn('Creator');
-      });
-      Schema::table('event',function($newcolumn3){
-        $newcolumn3 -> dropcolumn('CreatorID');
-      });
-      Schema::table('event',function($newcolumn4){
-        $newcolumn4 -> dropcolumn('Category');
-      });*/
-
+    {
+      
     }
+
 }

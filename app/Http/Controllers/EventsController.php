@@ -39,6 +39,7 @@ public function showBrowseEvents()
   {
     $event = new Event;
     $event -> Name = Input::get('name');
+    $event -> CreatorID = Input::get('creatorID');
     $event -> Start_Date = date("Y-m-d H:i:s");
     $event -> End_Date = date("Y-m-d H:i:s");
     $event -> Description = 'sample Description';
