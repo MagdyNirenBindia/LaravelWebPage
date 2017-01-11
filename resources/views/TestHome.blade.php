@@ -10,7 +10,7 @@ $user = Auth::user();
 
 // Get the currently authenticated user's ID...
 $id = Auth::id();
-
+$events = Event::all();
 $nameCurUser = User::find($id)->name?>
 
 <!DOCTYPE html>
@@ -24,11 +24,15 @@ $nameCurUser = User::find($id)->name?>
 <!--img src="<?php echo asset('images/4i.jpg')?>" alt="test image"/-->
 <h2>Events you're attending:</h2>
 <?php
-  $attEvents = Attendee::find($id);
+  $attEvents = Attendee::where('CustomerID',$id)->get();
  ?>
 
 <div>
-  {{$attEvents}}
+  @foreach ($attEvents as $attEvent)
+    <p>
+      {{Event::find($attEvent->EventID)->Name}}
+    </p>
+    @endforeach
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src ="<?php echo asset('js/test.js')?>" type="text/javascript"></script>

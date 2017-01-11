@@ -21,6 +21,7 @@ class AttendEventsController extends Controller
     $attendee -> EventID = Input::get('eventID');
     $attendee -> CustomerID = Input::get('customerID');
     $attendee -> save();
-    return ($attendee);
+    $eventsatt = Attendee::all()->toArray();
+    return ($eventsatt);
   }
 }

@@ -48,4 +48,6 @@ $nameCurUser = User::find($id1)->name?>
     @endforeach
   </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src ="<?php echo asset('js/browse.js')?>" type="text/javascript"></script>
 </html>
