@@ -20,6 +20,7 @@ class AttendEventsController extends Controller
     $attendee = new Attendee;
     $attendee -> EventID = Input::get('eventID');
     $attendee -> CustomerID = Input::get('customerID');
+    $attendee -> Date = Input::get('eventDate');
     $attendee -> save();
     $eventsatt = Attendee::all()->toArray();
     return ($eventsatt);

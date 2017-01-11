@@ -15,5 +15,5 @@
 </nav>
 
 </body>
-
+@yield('content')
 </html>

@@ -35,17 +35,27 @@ $nameCurUser = User::find($id1)->name?>
   <?php else: ?>
       <p>There are <em>{{$size}}</em> events on this page </p>
     <?php endif; ?>
+    <ol>
     @foreach ($events as $event)
-        <p><em>Event {{$count}}:</em> {{ $event -> Name }}<br/><em>Creator:</em> {{$event -> Creator}}</p>
-        <form action="attendEvent" method="post">
-          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-          <input type="hidden" name="eventID" value="{{ $event -> id }}">
-          <input type="hidden" name="customerID" value="{{ $id1 }}">
-          <input type="hidden" name="creatorID" value="{{ $event ->CreatorID }}">
-          <input type="submit" value="Attend">
-        </form>
-        <?php $count++; ?>
+    <li id ="{{$count}}">
+      <article>
+      <p>{{ $event -> Name }}<br/>
+        <em>Creator:</em> {{$event -> Creator}}<br/>
+        <em>Category:</em> {{$event -> Genre}}
+      </p>
+      <form class="eventform" action="attendEvent" method="post">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="eventID" value="{{ $event -> id }}">
+        <input type='hidden' name='eventDate' value="{{$event -> Date}}">
+        <input type="hidden" name="customerID" value="{{ $id1 }}">
+        <input type="hidden" name="creatorID" value="{{ $event ->CreatorID }}">
+        <input class="attendBtn" type="submit" value="Attend">
+      </form>
+      <?php $count++; ?>
+      </article>
+    </li>
     @endforeach
+    </ol>
   </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

@@ -1,5 +1,8 @@
 
 @extends('layouts.webframe')
+
+
+@section('content')
 <?php use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Event;
@@ -24,17 +27,30 @@ $nameCurUser = User::find($id)->name?>
 <!--img src="<?php echo asset('images/4i.jpg')?>" alt="test image"/-->
 <h2>Events you're attending:</h2>
 <?php
-  $attEvents = Attendee::where('CustomerID',$id)->get();
+  $attEvents = Attendee::where('CustomerID',$id)->select('EventID')->groupby('EventID')->get();
  ?>
-
-<div>
+<div id="EventsAttn">
   @foreach ($attEvents as $attEvent)
     <p>
       {{Event::find($attEvent->EventID)->Name}}
     </p>
     @endforeach
 </div>
+
+<h2>Events you have created</h2>
+<?php
+  $crtdEvents = Event::where('CreatorID',$id)->get();
+ ?>
+<div id="EventsAttn">
+  @foreach ($crtdEvents as $crtdEvent)
+    <p>
+      {{Event::find($crtdEvent->id)->Name}}
+    </p>
+    @endforeach
+</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src ="<?php echo asset('js/test.js')?>" type="text/javascript"></script>
 </body>
 </html>
+@endsection
