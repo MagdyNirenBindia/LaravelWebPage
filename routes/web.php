@@ -44,6 +44,7 @@ Route::post('/attendEvent','AttendEventsController@doAttendEvent');
 
 Route::get('/testAjax', 'EventsController@getData');
 
+Route::post('/viewEvent','EventsController@displayEvent');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');

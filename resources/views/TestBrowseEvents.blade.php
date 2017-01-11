@@ -20,36 +20,45 @@ $nameCurUser = User::find($id1)->name?>
     </head>
 <body>
 
-<p>Search</p>
+<div id="numEvents">
+  <h2>
+  <?php if ($size==1): ?>
+    There is <em>{{$size}}</em> event on this page
+  <?php else: ?>
+    There are <em>{{$size}}</em> events on this page
+  <?php endif; ?>
+</h2>
+</div>
 
-<!-- still to add the search function-->
-<!--form>
-<input type="text" name="valueToSearch" placeholder="Search by Event, Location...">
-<input type="submit" name="search" Value="Filter"-->
+<div id="searchbar">
+  <h2>Search</h2>
+  <p><input type="text" id="textSearchInput" placeholder="Search by Event Name"/><br/></p>
+  <h3>Narrow Selection Based on Category</h3>
+    <select name="category" id="catSearchInput">
+      <option value="ALL">Please Select</option>
+      <!-- Add JS to enusre that the please select option
+      can't be submitted-->
+      <option value="Music">Music</option>
+      <option value="Sports">Sports</option>
+      <option value="Social">Social</option>
+      <option value="Business">Businesss</option>
+    </select>
+  </p>
+</div>
 
-<table width="800" border="1" cellpadding="1" cellspacing="1">
 
   <div id="displayEvents">
-    <?php if ($size==1): ?>
-    <p>There is <em>{{$size}}</em> event on this page </p>
-  <?php else: ?>
-      <p>There are <em>{{$size}}</em> events on this page </p>
-    <?php endif; ?>
-    <ol>
+    <ol id="eventsOL">
     @foreach ($events as $event)
-    <li id ="{{$count}}">
+    <li>
       <article>
-      <p>{{ $event -> Name }}<br/>
-        <em>Creator:</em> {{$event -> Creator}}<br/>
-        <em>Category:</em> {{$event -> Genre}}
-      </p>
-      <form class="eventform" action="attendEvent" method="post">
+      <p class="EventName">{{ $event -> Name }}</p>
+      <p class="EventCat" style="display:none;">{{ $event -> Genre }}</p>
+      <form class="viewEvent" action="/viewEvent" method="post">
+        {{ csrf_field() }}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="eventID" value="{{ $event -> id }}">
-        <input type='hidden' name='eventDate' value="{{$event -> Date}}">
-        <input type="hidden" name="customerID" value="{{ $id1 }}">
-        <input type="hidden" name="creatorID" value="{{ $event ->CreatorID }}">
-        <input class="attendBtn" type="submit" value="Attend">
+        <input class="viewBtn" type="submit" value="View Event">
       </form>
       <?php $count++; ?>
       </article>

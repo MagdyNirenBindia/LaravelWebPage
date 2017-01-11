@@ -27,7 +27,11 @@ class EventsController extends Controller
     return View::make('CreateEvent');
   }
 
-
+public function displayEvent()
+{
+  $eventID = Input::get('eventID');
+   return View::make('ViewEvent',['eventID'=>$eventID]);
+}
 
 public function showBrowseEvents()
 {
