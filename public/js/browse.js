@@ -54,3 +54,41 @@ $('#catSearchInput').change(function () {
           }
     }
 });
+
+$('#dateSearchBtn').click(function(){
+  var d1 = document.getElementById('startD').valueAsDate;
+  var date1 = new Date(d1);
+
+  var d2 = document.getElementById('endD').valueAsDate;
+  var date2 = new Date(d2);
+
+  var i,ul,li,a,tempdate,j,tdate
+  ul = document.getElementById("eventsOL");
+  li = ul.getElementsByTagName('li');
+
+  for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByClassName('EventDate')[0];
+        tempdate = a.innerHTML.split("-");
+        for (j=0; j<tempdate.length;j++){
+        tempdate[j]=parseInt(tempdate[j]);
+        }
+        console.log(tempdate);
+        tdate = new Date(tempdate[0],tempdate[2],tempdate[1])
+        console.log(tdate);
+
+        /*if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+    if(filter == 'ALL'){
+      for (i = 0; i < li.length; i++) {
+            $('#numEvents').show();
+            a = li[i].getElementsByClassName('EventCat')[0];
+            li[i].style.display = "";
+          }
+    */
+}
+
+});

@@ -33,6 +33,15 @@ $nameCurUser = User::find($id1)->name?>
 <div id="searchbar">
   <h2>Search</h2>
   <p><input type="text" id="textSearchInput" placeholder="Search by Event Name"/><br/></p>
+
+  <section>
+    <h3>Search by Time Range </h3>
+    <p>Start: <input type="date" id="startD" name="start" value=""><br>
+    End: <input id="endD"type="date" name="end" value=""></p>
+    <button id="dateSearchBtn" type="button" name="Search">Search By Date</button>
+  </section>
+
+
   <h3>Narrow Selection Based on Category</h3>
     <select name="category" id="catSearchInput">
       <option value="ALL">Please Select</option>
@@ -54,6 +63,7 @@ $nameCurUser = User::find($id1)->name?>
       <article>
       <p class="EventName">{{ $event -> Name }}</p>
       <p class="EventCat" style="display:none;">{{ $event -> Genre }}</p>
+      <p class="EventDate" style="display:none;">{{ $event -> Date }}</p>
       <form class="viewEvent" action="/viewEvent" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">

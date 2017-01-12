@@ -38,7 +38,6 @@ public function showBrowseEvents()
   return View::make('TestBrowseEvents');
 }
 
-
   public function doCreateEvent()
   {
     $event = new Event;

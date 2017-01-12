@@ -33,6 +33,12 @@ $nameCurUser = User::find($id)->name?>
   @foreach ($attEvents as $attEvent)
     <p>
       {{Event::find($attEvent->EventID)->Name}}
+      <form class="" action="/feedback" method="post">
+        {{ csrf_field() }}
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="eventID" value="{{ $attEvent -> EventID }}">
+        <input type="submit" name="review" value="Give Feedback">
+      </form>
     </p>
     @endforeach
 </div>
@@ -41,7 +47,7 @@ $nameCurUser = User::find($id)->name?>
 <?php
   $crtdEvents = Event::where('CreatorID',$id)->get();
  ?>
-<div id="EventsAttn">
+<div id="EventsCrtd">
   @foreach ($crtdEvents as $crtdEvent)
     <p>
       {{Event::find($crtdEvent->id)->Name}}
