@@ -24,8 +24,8 @@ function checkDate(){
   var now = new Date();
   if (!(endDate.getTime() > now.getTime())) {
       $('#attendEvent').hide();
-      $('#endSaleNoticeCapacity').hide();
-      $('#endSaleNoticeTime').show();
+        console.log('hello');
+      $('#endSaleNotice').html('<strong>Sorry the ticket sales for this event have ended. Please feel free to check out our other events!</strong>');
   }
 }
 
@@ -37,10 +37,9 @@ function checkCapacity() {
 
 function soldOut(){
   $('#attendEvent').hide();
-  $('#endSaleNoticeCapacity').show();
+  $('#endSaleNotice').html('<strong>Sorry this event is sold out. Please feel free to check out our other events!</strong>') ;
 }
 
 function notSoldOut() {
   $('#attendEvent').show();
-  $('#endSaleNoticeCapacity').hide();
 }

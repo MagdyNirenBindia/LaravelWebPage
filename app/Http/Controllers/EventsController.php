@@ -44,9 +44,9 @@ public function showBrowseEvents()
     $event -> Name = Input::get('name');
     $event -> CreatorID = Input::get('creatorID');
     $event -> Start_Date = date("Y-m-d H:i:s");
-    $event -> End_Date = date("Y-m-d H:i:s");
-    $event -> Description = 'sample Description';
-    $event -> Location = 'sample Location';
+    $event -> End_Date = Input::get('endDate');
+    $event -> Description = Input::get('description');
+    $event -> Location = Input::get('location');
     $event -> Date = Input::get('date');
     $event -> Creator = Input::get('creator');
     $event -> Ticket_Capacity = Input::get('ticketCapacity');;

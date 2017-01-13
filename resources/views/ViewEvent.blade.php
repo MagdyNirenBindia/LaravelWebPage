@@ -43,8 +43,7 @@ else{
   </p>
 </div>
 
-<p id="endSaleNoticeTime" style="display:none;"><strong>Sorry the ticket sales for this event have ended. Please feel free to check out our other events!</strong></p>
-<p id="endSaleNoticeCapacity" style="display:none;"><strong>Sorry this event is sold out. Please feel free to check out our other events!</strong></p>
+<p id="endSaleNotice"></p>
 
 <div id="attendEvent">
   <form class="eventform" action="attendEvent" method="post">
