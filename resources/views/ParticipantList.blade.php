@@ -9,13 +9,13 @@ use App\Event;
 use App\Attendee;
 
 //Calculating the progress of ticket sales
-$ticketsSold = sizeof(Attendee::where('EventID',$eventID)->select('CustomerID')->groupby('CustomerID')->get());
+$ticketsSold = sizeof(Attendee::where('EventID', $eventID)->select('CustomerID')->groupby('CustomerID')->get());
 $ticketCapacity = Event::find($eventID)->Ticket_Capacity;
 $prcnt = ($ticketsSold/$ticketCapacity)*100;
 
 //Generating array of particpants to the event
 
-$participants = Attendee::where('EventID',$eventID)->select('CustomerID')->groupby('CustomerID')->get();
+$participants = Attendee::where('EventID', $eventID)->select('CustomerID')->groupby('CustomerID')->get();
 $count = 1;
 ?>
 <!DOCTYPE html>
@@ -29,7 +29,7 @@ $count = 1;
     <p>Total Tickets Issued:<strong> {{$ticketCapacity}}</strong>,<br> Of which sold:<strong> {{$ticketsSold}}</strong></p>
   </div>
 
-  <div class="salesProgress"> 
+  <div class="salesProgress">
   <p><progress value="{{$ticketsSold}}" max="{{$ticketCapacity}}"></progress>     {{round($prcnt,1,PHP_ROUND_HALF_UP)}}%</p>
   </div>
 

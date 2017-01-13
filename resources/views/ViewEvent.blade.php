@@ -6,9 +6,18 @@
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Event;
+use App\Attendee;
 $id1 = Auth::id();
 $event = Event::find($eventID);
-
+$ticketsSold = sizeof(Attendee::where('EventID',$eventID)->select('CustomerID')->groupby('CustomerID')->get());
+$ticketCapacity = Event::find($eventID)->Ticket_Capacity;
+$atCapacity = 1;
+if ($ticketsSold >= $ticketCapacity) {
+  $atCapacity = 1;
+}
+else{
+  $atCapacity = 0;
+}
 ?>
 
 
@@ -22,13 +31,20 @@ $event = Event::find($eventID);
 <p>{{$event -> Description}}</p>
 </div>
 
+<p id="cap" style="display:none;">{{$atCapacity}}</p>
+
 <div id="details">
   <p>
     Creator: {{$event -> Creator}}<br/>
     Date: {{$event -> Date}}<br/>
-    Number of Tickets: {{$event -> Ticket_Capacity}}
+    Location: {{$event -> Location}}<br/>
+    Number of Tickets: {{$event -> Ticket_Capacity}}<br/>
+    Tickets Sold until: <span id="endDate" >{{$event -> End_Date}}</span>
   </p>
 </div>
+
+<p id="endSaleNoticeTime" style="display:none;"><strong>Sorry the ticket sales for this event have ended. Please feel free to check out our other events!</strong></p>
+<p id="endSaleNoticeCapacity" style="display:none;"><strong>Sorry this event is sold out. Please feel free to check out our other events!</strong></p>
 
 <div id="attendEvent">
   <form class="eventform" action="attendEvent" method="post">
