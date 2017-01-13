@@ -61,6 +61,12 @@ $('#dateSearchBtn').click(function() {
 
     var d2 = document.getElementById('endD').valueAsDate;
     var date2 = new Date(d2);
+$('#errorMsg').text('');
+    if(!(d2.getTime()>d1.getTime())){
+              console.log('hello');
+      $('#errorMsg').text('Please enter an end date that is greater than the start date');
+      return;
+    }
 
     var i, ul, li, a, tempdate, j, tdate
     ul = document.getElementById("eventsOL");
@@ -69,10 +75,6 @@ $('#dateSearchBtn').click(function() {
     for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByClassName('EventDate')[0];
         tempdate = new Date(a.innerHTML);
-        console.log(tempdate.getTime());
-        console.log(tempdate.getTime());
-        console.log(tempdate.getTime());
-
         if (!(tempdate.getTime() > date1.getTime() && tempdate.getTime() < date2.getTime())) {
             li[i].style.display = "none";
         } else {

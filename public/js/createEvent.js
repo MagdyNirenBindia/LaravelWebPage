@@ -1,5 +1,7 @@
 $('document').ready(function() {
+  "use strict"
     console.log('page loaded');
+    var x;
 });
 
 function doubleCheck() {
@@ -7,21 +9,28 @@ function doubleCheck() {
         killSubmission();
     }
     else{
-      console.log('form should submit');
+    console.log('form should submit');
+    $('.eventform').submit();
     }
 }
 
 $('#submit').click(function() {
     //validate elements of the form
-    var x = 0;
+    x = 0;
     x = validateName(x);
+    console.log(x);
     x = validateDate(x);
+    console.log(x);
     x = validateNumbTickets(x);
+    console.log(x);
     x = validateEndDate(x);
+    console.log(x);
     x = validateLocation(x);
+    console.log(x);
     x = validateCategory(x);
+    console.log(x);
     x = validateDescription(x);
-                  console.log(x);
+    console.log(x);
     if (!(x == 0)) {
         killSubmission();
         alert('Please fill in fields marked in red');
@@ -38,6 +47,7 @@ function validateName(x) {
         $('.name').css('color', 'red');
         x = x + 1;
         return x;
+        killSubmission()
     }
     else{
       $('.name').css('color', 'black');
@@ -52,7 +62,17 @@ function validateDate(x) {
         return x;
     }
     else{
+      var date1 = new Date($('#date').val());
+      var now = new Date();
+      console.log(date1);
       $('.date').css('color', 'black');
+        if (date1.getTime()<now.getTime()){
+          $('.date').css('color', 'red');
+          x = x + 1;
+          $('#Alert').text('Please enter an event date that is in the future!');
+          $('#Alert').show();
+          killSubmission()
+        }
         return x;
     }
 }
@@ -62,6 +82,7 @@ function validateNumbTickets(x) {
         $('.numTickets').css('color', 'red');
         x = x + 1;
         return x;
+        killSubmission()
     }
     else{
       $('.numTickets').css('color', 'black');
@@ -74,9 +95,21 @@ function validateEndDate(x) {
       $('.endDate').css('color', 'red');
       x = x + 1;
       return x;
+      killSubmission()
   }
   else{
+    var date1 = new Date($('#date').val());
+    var date2 = new Date($('#endDate').val());
     $('.endDate').css('color', 'black');
+    console.log(date1.getTime());
+    console.log(date2.getTime());
+      if (!(date1.getTime()>date2.getTime())){
+        $('.endDate').css('color', 'red');
+        x = x + 1;
+        $('#Alert').text('Please enter an end date for ticket sales that is before the date of the event!');
+        $('#Alert').show();
+        killSubmission()
+      }
       return x;
   }
 }
@@ -86,6 +119,7 @@ function validateLocation(x) {
       $('.location').css('color', 'red');
       x = x + 1;
       return x;
+      killSubmission()
     }
       else{
         $('.location').css('color', 'black');
@@ -98,6 +132,7 @@ function validateCategory(x) {
     $('.category').css('color', 'red');
     x = x + 1;
     return x;
+    killSubmission()
   }
   else{
     $('.category').css('color', 'black');
@@ -110,13 +145,14 @@ var text = $('#description').val();
 var sizetext = text.split(" ").length;
 if (sizetext < 5){
   $('.description').css('color', 'red');
-  $('#descriptionAlert').show();
+  $('#Alert').show();
   x = x + 1;
   return x;
+  killSubmission()
 }
 else{
   $('.description').css('color', 'black');
-  $('#descriptionAlert').hide();
+  $('#dAlert').hide();
     return x;
 }
 }

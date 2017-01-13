@@ -15,6 +15,7 @@ display: inline;
       <li><a href="/home">Home</a></li>
       <li><a href="createEvent">Create Event</a></li>
       <li><a href="BrowseEvents">Browse Events</a></li>
+      <li><a href="/viewFeedback">View Feedback</a></li>
     </ul>
   </nav>
 </body>

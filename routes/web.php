@@ -35,6 +35,10 @@ Route::get('/Example.blade.php', function () {
 
 Route::get('/data', 'EventsController@index');
 
+
+Route::get('/viewFeedback',function(){
+  return view('ViewFeedback');
+});
 Route::get('/createEvent', 'EventsController@showCreateEvent');
 Route::get('/browseEvent', 'EventsController@showBrowseEvents');
 Route::post('/createEvent', 'EventsController@doCreateEvent');

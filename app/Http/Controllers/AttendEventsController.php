@@ -23,6 +23,6 @@ class AttendEventsController extends Controller
     $attendee -> Date = Input::get('eventDate');
     $attendee -> save();
     $eventsatt = Attendee::all()->toArray();
-    return ($eventsatt);
+    return redirect('/home');
   }
 }

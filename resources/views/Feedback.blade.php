@@ -20,7 +20,7 @@ $nameCurUser = User::find($id)->name?>
 <!DOCTYPE html>
 <html>
   <head>
-    <Review All the Events</title>
+    <title>Review All the Events</title>
   </head>
   <body>
     <div id="reviewForm">

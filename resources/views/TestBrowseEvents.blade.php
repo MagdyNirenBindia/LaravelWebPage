@@ -39,6 +39,9 @@ $nameCurUser = User::find($id1)->name?>
     <p>Start: <input type="date" id="startD" name="start" value=""><br>
     End: <input id="endD"type="date" name="end" value=""></p>
     <button id="dateSearchBtn" type="button" name="Search">Search By Date</button>
+    <p id='errorMsg'>
+
+    </p>
   </section>
 
 

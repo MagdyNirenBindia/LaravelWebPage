@@ -35,7 +35,7 @@ forms and set minimum character requirements for
           <option value="Business">Businesss</option>
         </select><br/>
         <span class="description">Event Description:</span><br> <textarea name="description" id="description" rows="4" cols="60" placeholder="Eg. Concert honoring my glory! Bring Friends, but make sure to have them sign up first!"></textarea>
-        <span class="description" id="descriptionAlert" style="display:none;">Please enter at least five words</span><br/>
+        <span class="description" id="Alert" style="display:none;">Please enter at least five words</span><br/>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="creator" value="{{ $nameCreator }}">
         <input type="hidden" name="creatorID" value="{{ $id }}">
@@ -46,6 +46,6 @@ forms and set minimum character requirements for
       <a href="home">Return to Homepage</a>
     </nav>
   </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src ="<?php echo asset('js/createEvent.js')?>" type="text/javascript"></script>
 </html>
