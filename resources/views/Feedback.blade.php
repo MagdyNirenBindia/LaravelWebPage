@@ -81,8 +81,14 @@ $nameCurUser = User::find($id)->name?>
 <th>Rating</th>
 <th>Reviewed By</th>
 </tr>
-
-
+@foreach($feedbacks as $feedback)
+<tr>
+<td>{{Event::find($feedback->EventID)->Name}}</td>
+<td>{{$feedback -> Feedback}}</td>
+<td>{{$feedback -> Rating}}</td>
+<td>{{User::find($feedback -> CustomerID)->name}}</td>
+</tr>
+@endforeach
 </table>
 </html>
 @endsection

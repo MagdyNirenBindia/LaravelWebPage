@@ -36,7 +36,7 @@ $nameCurUser = User::find($id)->name?>
       <form class="" action="/feedback" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="eventID" value="{{ $attEvent -> EventID }}">
+        <input type="hidden" name="eventID" value="{{ $attEvent -> EventID}}">
         <input type="submit" name="review" value="Give Feedback">
       </form>
     </p>
@@ -51,6 +51,12 @@ $nameCurUser = User::find($id)->name?>
   @foreach ($crtdEvents as $crtdEvent)
     <p>
       {{Event::find($crtdEvent->id)->Name}}
+      <form class="" action="/viewParticipants" method="post">
+        {{ csrf_field() }}
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="eventID" value="{{ $crtdEvent -> id }}">
+        <input type="submit" name="viewParticipants" value="View Participants & Ticket Sales">
+      </form>
     </p>
     @endforeach
 </div>

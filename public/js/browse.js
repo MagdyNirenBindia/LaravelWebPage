@@ -68,27 +68,17 @@ $('#dateSearchBtn').click(function(){
 
   for (i = 0; i < li.length; i++) {
         a = li[i].getElementsByClassName('EventDate')[0];
-        tempdate = a.innerHTML.split("-");
-        for (j=0; j<tempdate.length;j++){
-        tempdate[j]=parseInt(tempdate[j]);
-        }
-        console.log(tempdate);
-        tdate = new Date(tempdate[0],tempdate[2],tempdate[1])
-        console.log(tdate);
+        tempdate = new Date(a.innerHTML);
+        console.log(tempdate.getTime());
+        console.log(tempdate.getTime());
+        console.log(tempdate.getTime());
 
-        /*if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
+        if (!(tempdate.getTime()>date1.getTime()&&tempdate.getTime()<date2.getTime())){
+          li[i].style.display = "none";
         }
-    }
-    if(filter == 'ALL'){
-      for (i = 0; i < li.length; i++) {
-            $('#numEvents').show();
-            a = li[i].getElementsByClassName('EventCat')[0];
-            li[i].style.display = "";
-          }
-    */
+        else{
+          li[i].style.display = "";
+        }
 }
 
 });

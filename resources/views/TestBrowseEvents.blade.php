@@ -63,7 +63,7 @@ $nameCurUser = User::find($id1)->name?>
       <article>
       <p class="EventName">{{ $event -> Name }}</p>
       <p class="EventCat" style="display:none;">{{ $event -> Genre }}</p>
-      <p class="EventDate" style="display:none;">{{ $event -> Date }}</p>
+      <p class="EventDate" >{{ $event -> Date }}</p>
       <form class="viewEvent" action="/viewEvent" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">

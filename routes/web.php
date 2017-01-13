@@ -42,6 +42,7 @@ Route::post('/createEvent', 'EventsController@doCreateEvent');
 Route::post('/createReview', 'FeedbackController@submitFeedback');
 
 Route::post('/feedback', 'FeedbackController@showFeedback');
+Route::post('/viewParticipants', 'HomeController@showParticipants');
 
 Route::post('/attendEvent','AttendEventsController@doAttendEvent');
 
