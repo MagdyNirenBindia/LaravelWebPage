@@ -36,7 +36,7 @@ else{
 <div id="details">
   <p>
     Creator: {{$event -> Creator}}<br/>
-    Date: {{$event -> Date}}<br/>
+    Date: <span id="date12">{{$event -> Date}}</span><br/>
     Location: {{$event -> Location}}<br/>
     Number of Tickets: {{$event -> Ticket_Capacity}}<br/>
     Tickets Sold until: <span id="endDate" >{{$event -> End_Date}}</span>
@@ -54,6 +54,15 @@ else{
     <input type="hidden" name="customerID" value="{{ $id1 }}">
     <input type="hidden" name="creatorID" value="{{ $event ->CreatorID }}">
     <input class="attendBtn" type="submit" value="Attend">
+  </form>
+</div>
+
+<div class="reviewEvent" style="display:none;">
+  <form class="" action="/feedback" method="post">
+    {{ csrf_field() }}
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <input type="hidden" name="eventID" value="{{ $event -> id}}">
+    <input type="submit" name="review" value="Give Feedback">
   </form>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

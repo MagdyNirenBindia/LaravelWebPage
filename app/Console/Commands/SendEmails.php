@@ -3,8 +3,14 @@
 namespace App\Console\Commands;
 
 use App\User;
-use App\DripEmailer;
 use Illuminate\Console\Command;
+use App\Event;
+use App\Attendee;
+use Illuminate\Bus\Queueable;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SendEmails extends Command
 {
@@ -35,11 +41,9 @@ class SendEmails extends Command
      * @param  DripEmailer  $drip
      * @return void
      */
-    public function __construct(DripEmailer $drip)
+    public function __construct()
     {
         parent::__construct();
-
-        $this->drip = $drip;
     }
 
     /**
@@ -49,6 +53,19 @@ class SendEmails extends Command
      */
     public function handle()
     {
-        $this->drip->send(User::find($this->argument('user')));
+        $events = Event::whereMonth('Date', '=', date('m'))->get();
+        foreach ($events as $event){
+          $eventID = $event -> id;
+          $participants = Attendee::where('EventID',$eventID)->select('CustomerID')->groupby('CustomerID')->get();
+          foreach($participants as $participant){
+          $user = User::find($participant->CustomerID);
+          Mail::send('emails.send', ['user' => $user], function ($mail) use ($user){
+            $mail->to($user['email'])
+                ->from('mnbeventsmanagement@gmail.com')
+                ->subject('You have upcoming events');
+        });
+        }
+        $this->info('Update Message Sent!');
+      }
+        }
     }
-}

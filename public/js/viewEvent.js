@@ -21,11 +21,15 @@ function chooseBtn() {
 
 function checkDate(){
   var endDate = new Date(document.getElementById('endDate').innerHTML);
+  var date12 = new Date(document.getElementById('date12').innerHTML);
   var now = new Date();
   if (!(endDate.getTime() > now.getTime())) {
       $('#attendEvent').hide();
         console.log('hello');
       $('#endSaleNotice').html('<strong>Sorry the ticket sales for this event have ended. Please feel free to check out our other events!</strong>');
+  }
+  if(date12.getTime()<now.getTime()){
+    $('.reviewEvent').show();
   }
 }
 
