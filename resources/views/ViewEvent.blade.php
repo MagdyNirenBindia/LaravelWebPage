@@ -8,6 +8,15 @@ use App\User;
 use App\Event;
 use App\Attendee;
 $id1 = Auth::id();
+$matchThese = ['CustomerID' => $id1, 'EventID' => $eventID];
+$isAttending1 = Attendee::where($matchThese)->select('CustomerID')->groupby('CustomerID')->get();
+$isAtn = 0;
+if ($isAttending1->isEmpty()){
+  $isAtn = 0;
+}
+else{
+  $isAtn = 1;
+}
 $event = Event::find($eventID);
 $ticketsSold = sizeof(Attendee::where('EventID',$eventID)->select('CustomerID')->groupby('CustomerID')->get());
 $ticketCapacity = Event::find($eventID)->Ticket_Capacity;
@@ -32,6 +41,7 @@ else{
 </div>
 
 <p id="cap" style="display:none;">{{$atCapacity}}</p>
+<p id="isAtnd" style="display:none;">{{$isAtn}}</p>
 
 <div id="details">
   <p>
@@ -42,6 +52,7 @@ else{
     Tickets Sold until: <span id="endDate" >{{$event -> End_Date}}</span>
   </p>
 </div>
+
 
 <p id="endSaleNotice"></p>
 

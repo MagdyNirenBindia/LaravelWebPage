@@ -17,6 +17,7 @@ function attendBtnLisstener() {
 function chooseBtn() {
   checkCapacity();
   checkDate();
+  checkAtnd();
 }
 
 function checkDate(){
@@ -46,4 +47,11 @@ function soldOut(){
 
 function notSoldOut() {
   $('#attendEvent').show();
+}
+function checkAtnd(){
+  console.log($('#isAtnd').text());
+  if ($('#isAtnd').html() == '1') {
+    $('#attendEvent').hide();
+    $('#endSaleNotice').html('<strong>You are signed on to attend this event! We hope you enjoy it</strong>') ;
+  }
 }

@@ -27,18 +27,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $events = Event::whereMonth('Date', '=', date('m'))->get();
-        foreach ($events as $event) {
-            $eventID = $event -> id;
-            $participants = Attendee::where('EventID', $eventID)->select('CustomerID')->groupby('CustomerID')->get();
-            foreach ($participants as $participant) {
-                $user = User::find($participant->CustomerID)->name;
-                $schedule->command('email:send {{$user}}')
+                $schedule->command('email:send magdy')
                   ->everyMinute()
                   ->sendOutputTo('storage/logs/email.log');
             }
-        }
-    }
     /**
      * Register the Closure based commands for the application.
      *

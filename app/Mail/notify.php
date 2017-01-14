@@ -28,7 +28,7 @@ class notify extends Mailable
      */
     public function build()
     {
-        return $this->from('mnbeventsmanagement@gmail.com');
-                    ->view('view.name');
+        return $this->view('emails.send')
+                    ->subject('You have an upcoming event!');
     }
 }
