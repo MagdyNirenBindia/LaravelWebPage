@@ -17,9 +17,12 @@ $feedbacks = Feedback::all();
 <html>
   <head>
     <title>Review All the Events</title>
+    <link href="https://fonts.googleapis.com/css?family=Athiti|Indie+Flower|Nunito|Satisfy" rel="stylesheet">
+    <link href="{{asset('css/HomePage.css')}}" type="text/css" rel="stylesheet" ?>
   </head>
 <body>
-<table width="800" border="1" cellpadding="1" cellspacing="1">
+    <div class="overlay">
+        <table width="800" border="1" cellpadding="1" cellspacing="1">
 <tr>
 <th>Event Name</th>
 <th>Feedback</th>
@@ -35,6 +38,7 @@ $feedbacks = Feedback::all();
 </tr>
 @endforeach
 </table>
+    </div>
 </body>
 </html>
 

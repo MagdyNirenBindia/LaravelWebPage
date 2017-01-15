@@ -9,6 +9,7 @@ display: inline;
 }
 </style>
 <body>
+    <div id="navbar">
   <nav>
     <ul>
       <li><a href="<?= URL::to('/logout') ?>">Log out</a></li>
@@ -18,6 +19,7 @@ display: inline;
       <li><a href="/viewFeedback">View Feedback</a></li>
     </ul>
   </nav>
+    </div>
 </body>
 @yield('content')
 </html>

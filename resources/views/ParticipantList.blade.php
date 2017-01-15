@@ -22,8 +22,11 @@ $count = 1;
 <html>
 <head>
 <title>MBN Events Sales</title>
+            <link href="https://fonts.googleapis.com/css?family=Athiti|Indie+Flower|Nunito|Satisfy" rel="stylesheet">
+    <link href="{{asset('css/HomePage.css')}}" type="text/css" rel="stylesheet" ?>
 </head>
 <body>
+    <div class="overlay">
   <div class="">
     <h1>{{Event::find($eventID)->Name}}</h1>
     <p>Total Tickets Issued:<strong> {{$ticketCapacity}}</strong>,<br> Of which sold:<strong> {{$ticketsSold}}</strong></p>
@@ -36,7 +39,7 @@ $count = 1;
   <div class="participantList">
     <table width="800" border="1" cellpadding="1" cellspacing="1">
     <tr>
-    <th>Participant Numb</th>
+    <th>Participant Number</th>
     <th>Participant Name</th>
     <th>Participant Email</th>
     </tr>
@@ -52,7 +55,7 @@ $count = 1;
   </table>
   </div>
 
-
+    </div>
 </body>
 </html>
 @endsection

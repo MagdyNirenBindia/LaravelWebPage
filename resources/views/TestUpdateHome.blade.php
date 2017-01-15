@@ -47,7 +47,7 @@ $dbname = "eventsweb";
 }
 ?>
 
-<h2>Events You are Attending:</h2>
+<h2>Events You are Attending...</h2>
 <table width="800" border="1" cellpadding="1" cellspacing="1">
 
 <tr>

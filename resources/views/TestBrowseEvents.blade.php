@@ -17,9 +17,13 @@ $nameCurUser = User::find($id1)->name?>
 <html>
 <head>
     <title>MBN Events</title>
+        <link rel="stylesheet" type="text/css" href="{{asset('css/BrowseEvents.css')}}"/>
+    <link href="https://fonts.googleapis.com/css?family=Athiti|Indie+Flower|Nunito|Satisfy" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src ="<?php echo asset('js/browse.js')?>" type="text/javascript"></script>
     </head>
 <body>
-
+<div class="overlay">
 <div id="numEvents">
   <h2>
   <?php if ($size==1): ?>
@@ -32,38 +36,40 @@ $nameCurUser = User::find($id1)->name?>
 
 <div id="searchbar">
   <h2>Search</h2>
-  <p><input type="text" id="textSearchInput" placeholder="Search by Event Name"/><br/></p>
+  <p><input type="text" id="textSearchInput" placeholder="Search by Event Name" class="box"/><br/></p>
 
   <section>
-    <h3>Search by Time Range </h3>
-    <p>Start: <input type="date" id="startD" name="start" value=""><br>
-    End: <input id="endD"type="date" name="end" value=""></p>
-    <button id="dateSearchBtn" type="button" name="Search">Search By Date</button>
+    <h3>Search by time range... </h3>
+    <p>Start: <input type="date" id="startD" name="start" value="" id="text"><br>
+    End: <input id="endD"type="date" name="end" value="" id="text"></p>
+    <button id="dateSearchBtn" type="button" name="Search" class="box">Search By Date</button>
     <p id='errorMsg'>
 
     </p>
   </section>
 
 
-  <h3>Narrow Selection Based on Category</h3>
-    <select name="category" id="catSearchInput">
-      <option value="ALL">Please Select</option>
+  <h3>Narrow selection based on category...</h3>
+    <select name="category" id="catSearchInput" class="box">
+      <option value="ALL" id="text">Please Select</option>
       <!-- Add JS to enusre that the please select option
       can't be submitted-->
-      <option value="Music">Music</option>
-      <option value="Sports">Sports</option>
-      <option value="Social">Social</option>
-      <option value="Business">Businesss</option>
+      <option value="Music" id="text">Music</option>
+      <option value="Sports" id="text">Sports</option>
+      <option value="Social" id="text">Social</option>
+      <option value="Business" id="text">Businesss</option>
+      <option value="Educational" id="text">Educational</option>
+      <option value="Other" id="text">Other</option>
     </select>
-  </p>
 </div>
 
 
   <div id="displayEvents">
     <ol id="eventsOL">
+        <p>
     @foreach ($events as $event)
+        </p>
     <li>
-      <article>
       <p class="EventName">{{ $event -> Name }}</p>
       <p class="EventCat" style="display:none;">{{ $event -> Genre }}</p>
       <p class="EventDate" >{{ $event -> Date }}</p>
@@ -71,15 +77,16 @@ $nameCurUser = User::find($id1)->name?>
         {{ csrf_field() }}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="eventID" value="{{ $event -> id }}">
-        <input class="viewBtn" type="submit" value="View Event">
+        <input class="viewBtn" type="submit" value="View Event" id="text">
       </form>
+
       <?php $count++; ?>
-      </article>
     </li>
+        <p>
     @endforeach
+        </p>
     </ol>
   </div>
+    </div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src ="<?php echo asset('js/browse.js')?>" type="text/javascript"></script>
 </html>

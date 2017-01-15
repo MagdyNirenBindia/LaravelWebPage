@@ -30,7 +30,11 @@ function checkDate(){
       $('#endSaleNotice').html('<strong>Sorry the ticket sales for this event have ended. Please feel free to check out our other events!</strong>');
   }
   if(date12.getTime()<now.getTime()){
-    $('.reviewEvent').show();
+    if ($('#isAtnd').html() == '1') {
+      $('#attendEvent').hide();
+      $('.reviewEvent').show();
+      $('#endSaleNotice').html('<strong>You attended this event! We hope you enjoyed it</strong>') ;
+    }
   }
 }
 

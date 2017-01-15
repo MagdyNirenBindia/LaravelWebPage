@@ -34,12 +34,17 @@ else{
 
 <!DOCTYPE html>
 <html>
+    <head>
+           <link href="https://fonts.googleapis.com/css?family=Athiti|Indie+Flower|Nunito|Satisfy" rel="stylesheet">
+    <link href="{{asset('css/HomePage.css')}}" type="text/css" rel="stylesheet" ?>
+    </head>
+    <body>
+        <div class="overlay">
 <h1>{{$event -> Name}}</h1>
 
 <div id="description">
 <p>{{$event -> Description}}</p>
 </div>
-
 <p id="cap" style="display:none;">{{$atCapacity}}</p>
 <p id="isAtnd" style="display:none;">{{$isAtn}}</p>
 
@@ -76,7 +81,9 @@ else{
     <input type="submit" name="review" value="Give Feedback">
   </form>
 </div>
+        </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src ="<?php echo asset('js/viewEvent.js')?>" type="text/javascript"></script>
+    </body>
 </html>
 @endsection

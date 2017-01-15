@@ -20,49 +20,61 @@ $nameCurUser = User::find($id)->name?>
 <html>
 <head>
 <title>MBN Events Homepage</title>
+        <link href="https://fonts.googleapis.com/css?family=Athiti|Indie+Flower|Nunito|Satisfy" rel="stylesheet">
+    <link href="{{asset('css/HomePage.css')}}" type="text/css" rel="stylesheet" ?>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src ="<?php echo asset('js/test.js')?>" type="text/javascript"></script>
 </head>
+    
 <body>
+    
+    <div class="overlay">
 <h1>Welcome {{$nameCurUser}}</h1>
-<p>This is a test homepage, and should only be reached if you have succesfully logged in</p>
-<!--img src="<?php echo asset('images/4i.jpg')?>" alt="test image"/-->
-<h2>Events you're attending:</h2>
+        
+<h2>Events you're attending...</h2>
 <?php
   $attEvents = Attendee::where('CustomerID',$id)->select('EventID')->groupby('EventID')->get();
  ?>
 <div id="EventsAttn">
-  @foreach ($attEvents as $attEvent)
     <p>
-      {{Event::find($attEvent->EventID)->Name}}
+  @foreach ($attEvents as $attEvent)
+    
+{{Event::find($attEvent->EventID)->Name}}
       <form class="viewEvent" action="/viewEvent" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="eventID" value="{{ $attEvent -> EventID }}">
-        <input class="viewBtn" type="submit" value="View Event">
+        <input class="viewBtn" type="submit" value="View Event" id="box">
       </form>
-    </p>
+    
+    <p>
     @endforeach
+        
+    </p>
+    
 </div>
 
-<h2>Events you have created</h2>
+<h2>Events you have created...</h2>
 <?php
   $crtdEvents = Event::where('CreatorID',$id)->get();
  ?>
 <div id="EventsCrtd">
-  @foreach ($crtdEvents as $crtdEvent)
     <p>
+  @foreach ($crtdEvents as $crtdEvent)
       {{Event::find($crtdEvent->id)->Name}}
-      <form class="" action="/viewParticipants" method="post">
+    </p>
+      <form action="/viewParticipants" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="eventID" value="{{ $crtdEvent -> id }}">
-        <input type="submit" name="viewParticipants" value="View Participants & Ticket Sales">
+        <input type="submit" name="viewParticipants" value="View Participants & Ticket Sales" id="box">
       </form>
-    </p>
+    <p>
     @endforeach
+    </p>
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src ="<?php echo asset('js/test.js')?>" type="text/javascript"></script>
+    </div>
 </body>
 </html>
 @endsection
