@@ -73,7 +73,7 @@ body{
 }
 
 #box, .attendBtn {
-    width: 100px;
+    width: 120px;
     height: 30px;
     border-radius: 15px;
     font-size: 15px;
@@ -101,4 +101,3 @@ table {
     text-align: left;
     font-family: 'Nunito', sans-serif;
 }
-

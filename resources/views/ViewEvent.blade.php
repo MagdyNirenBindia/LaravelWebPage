@@ -7,25 +7,24 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Event;
 use App\Attendee;
+
 $id1 = Auth::id();
 $matchThese = ['CustomerID' => $id1, 'EventID' => $eventID];
 $isAttending1 = Attendee::where($matchThese)->select('CustomerID')->groupby('CustomerID')->get();
 $isAtn = 0;
-if ($isAttending1->isEmpty()){
-  $isAtn = 0;
-}
-else{
-  $isAtn = 1;
+if ($isAttending1->isEmpty()) {
+    $isAtn = 0;
+} else {
+    $isAtn = 1;
 }
 $event = Event::find($eventID);
-$ticketsSold = sizeof(Attendee::where('EventID',$eventID)->select('CustomerID')->groupby('CustomerID')->get());
+$ticketsSold = sizeof(Attendee::where('EventID', $eventID)->select('CustomerID')->groupby('CustomerID')->get());
 $ticketCapacity = Event::find($eventID)->Ticket_Capacity;
 $atCapacity = 1;
 if ($ticketsSold >= $ticketCapacity) {
-  $atCapacity = 1;
-}
-else{
-  $atCapacity = 0;
+    $atCapacity = 1;
+} else {
+    $atCapacity = 0;
 }
 ?>
 
@@ -36,7 +35,7 @@ else{
 <html>
     <head>
            <link href="https://fonts.googleapis.com/css?family=Athiti|Indie+Flower|Nunito|Satisfy" rel="stylesheet">
-    <link href="{{asset('css/HomePage.css')}}" type="text/css" rel="stylesheet" ?>
+           <link href="{{asset('css/HomePage.css')}}" type="text/css" rel="stylesheet" ?>
     </head>
     <body>
         <div class="overlay">
@@ -69,7 +68,7 @@ else{
     <input type='hidden' name='eventDate' value="{{$event -> Date}}">
     <input type="hidden" name="customerID" value="{{ $id1 }}">
     <input type="hidden" name="creatorID" value="{{ $event ->CreatorID }}">
-    <input class="attendBtn" type="submit" value="Attend">
+    <input class="attendBtn" type="submit" value="Attend" id="box">
   </form>
 </div>
 
@@ -78,7 +77,7 @@ else{
     {{ csrf_field() }}
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <input type="hidden" name="eventID" value="{{ $event -> id}}">
-    <input type="submit" name="review" value="Give Feedback">
+    <input type="submit" name="review" value="Give Feedback" id="box">
   </form>
 </div>
         </div>
