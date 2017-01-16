@@ -19,8 +19,6 @@ $nameCurUser = User::find($id1)->name?>
     <title>MBN Events</title>
         <link rel="stylesheet" type="text/css" href="{{asset('css/BrowseEvents.css')}}"/>
     <link href="https://fonts.googleapis.com/css?family=Athiti|Indie+Flower|Nunito|Satisfy" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src ="<?php echo asset('js/browse.js')?>" type="text/javascript"></script>
     </head>
 <body>
 <div class="overlay">
@@ -35,20 +33,22 @@ $nameCurUser = User::find($id1)->name?>
 </div>
 
 <div id="searchbar">
+  <section id="indisp">
   <h2>Search</h2>
-  <p><input type="text" id="textSearchInput" placeholder="Search by Event Name" class="box"/><br/></p>
+  <p><input type="text" id="textSearchInput" placeholder="Search by Event Name" class="text"/><br/></p>
+</section>
 
-  <section>
+  <section id="indisp">
     <h3>Search by time range... </h3>
-    <p>Start: <input type="date" id="startD" name="start" value="" id="text"><br>
-    End: <input id="endD"type="date" name="end" value="" id="text"></p>
+    <p>Start: <input type="date" id="startD" name="start" value="" class="text"><br>
+    End: <input id="endD"type="date" name="end" value="" class="text"></p>
     <button id="dateSearchBtn" type="button" name="Search" class="box">Search By Date</button>
     <p id='errorMsg'>
 
     </p>
   </section>
 
-
+  <section id="indisp">
   <h3>Narrow selection based on category...</h3>
     <select name="category" id="catSearchInput" class="box">
       <option value="ALL" id="text">Please Select</option>
@@ -61,6 +61,7 @@ $nameCurUser = User::find($id1)->name?>
       <option value="Educational" id="text">Educational</option>
       <option value="Other" id="text">Other</option>
     </select>
+    </section>
 </div>
 
 
@@ -77,7 +78,7 @@ $nameCurUser = User::find($id1)->name?>
         {{ csrf_field() }}
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="eventID" value="{{ $event -> id }}">
-        <input class="viewBtn" type="submit" value="View Event" id="text">
+        <input class="viewBtn" type="submit" value="View Event" class="box">
       </form>
 
       <?php $count++; ?>
@@ -89,4 +90,6 @@ $nameCurUser = User::find($id1)->name?>
   </div>
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src ="<?php echo asset('js/browse.js')?>" type="text/javascript"></script>
 </html>

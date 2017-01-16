@@ -25,7 +25,7 @@ forms and set minimum character requirements for
     <div id="sidebar">
         <p> Make your own event page in just minutes! <br> <br><span class="description">Simply fill in all the details and we'll post it. <br><br> It's hassle free and easy to do.</span> </p>
         </div>
-      
+
     <div id="form">
       <form class="eventform" action="createEvent" method="post">
         <p><span class="name">Name of Event:</span> <input type="text" id="name" name="name" placeholder="Eg. Birthday" ><br/>

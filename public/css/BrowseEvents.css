@@ -74,7 +74,7 @@ h2,h3{
 
 #text{
     width: 100px;
-    height: 30px;
+    height: 15px;
     border-radius: 15px;
     font-size: 15px;
     text-align: center;
@@ -87,15 +87,25 @@ h2,h3{
 }
 
 .box {
-    width: 180px;
-    height: 30px;
-    font-size: 15px;
-    text-align: center;
-    background-color: rgba(255,255,255,0.8);
-    font-family: 'Nunito', sans-serif;
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+  font-size: 15px;
+  text-align: center;
+  background-color: rgba(255,255,255,0.8);
+  font-family: 'Nunito', sans-serif;
+  margin-left: 100px;
 }
 
 ol {
     float: left;
     margin-left: 300px;
+}
+
+#indisp {
+  display: inline-table;
+  border-style: solid;
+  background: white;
+  margin: 20px;
+  padding: 10px;
 }

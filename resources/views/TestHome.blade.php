@@ -22,16 +22,13 @@ $nameCurUser = User::find($id)->name?>
 <title>MBN Events Homepage</title>
         <link href="https://fonts.googleapis.com/css?family=Athiti|Indie+Flower|Nunito|Satisfy" rel="stylesheet">
     <link href="{{asset('css/HomePage.css')}}" type="text/css" rel="stylesheet" ?>
-    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src ="<?php echo asset('js/test.js')?>" type="text/javascript"></script>
 </head>
-    
+
 <body>
-    
+
     <div class="overlay">
 <h1>Welcome {{$nameCurUser}}</h1>
-        
+
 <h2>Events you're attending...</h2>
 <?php
   $attEvents = Attendee::where('CustomerID',$id)->select('EventID')->groupby('EventID')->get();
@@ -39,7 +36,7 @@ $nameCurUser = User::find($id)->name?>
 <div id="EventsAttn">
     <p>
   @foreach ($attEvents as $attEvent)
-    
+
 {{Event::find($attEvent->EventID)->Name}}
       <form class="viewEvent" action="/viewEvent" method="post">
         {{ csrf_field() }}
@@ -47,12 +44,12 @@ $nameCurUser = User::find($id)->name?>
         <input type="hidden" name="eventID" value="{{ $attEvent -> EventID }}">
         <input class="viewBtn" type="submit" value="View Event" id="box">
       </form>
-    
+
     <p>
     @endforeach
-        
+
     </p>
-    
+
 </div>
 
 <h2>Events you have created...</h2>
@@ -76,5 +73,7 @@ $nameCurUser = User::find($id)->name?>
 </div>
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src ="<?php echo asset('js/test.js')?>" type="text/javascript"></script>
 </html>
 @endsection
